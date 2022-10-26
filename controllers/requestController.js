@@ -13,7 +13,7 @@ requestController.addRequest = async (req, res) => {
       newRequest
         .save()
         .then((reqs) => {
-          res.json({ msg: "Request successfully added" });
+          res.status(200).json({ msg: "Request successfully added" });
         })
         .catch((err) => res.json(err));
     }

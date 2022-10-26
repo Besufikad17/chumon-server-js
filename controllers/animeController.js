@@ -1,6 +1,14 @@
 const Anime = require("../models/animeModel");
 const animeController = {};
 
+animeController.getList = async(req, res) => {
+    Anime.find({}).then(animes => {
+        res.json(animes)
+    }).catch(err => {
+        res.json(err)
+    })
+}
+
 animeController.getOrder = async (req, res) => {
     const title = req.params.title;
     Anime.find({ title: title })
